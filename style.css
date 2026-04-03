@@ -57,12 +57,11 @@ body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: clamp(80px, 15vw, 150px);
+  height: clamp(60px, 10vw, 100px);
   background-color: var(--cheese-main);
-  /* Use a simpler clip-path or background SVG */
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 v50 q20,50 40,0 t40,30 t40,-20 t40,40 t40,-30 t40,60 t40,-40 t40,30 t40,-20 t40,40 t40,-30 t40,60 t40,-40 t40,30 t40,-20 t40,40 t40,-30 t40,60 t40,-40 t40,30 t40,-20 t40,40 t40,-30 t40,50 v-100 z" fill="%23ffca28"/></svg>');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100"><path d="M0,0 v30 q10,30 20,10 t20,40 t20,-20 t20,20 t20,-10 t20,30 t20,-20 t20,40 t20,-30 t20,10 V0 Z" fill="%23ffca28"/></svg>');
+  background-size: 200px 100%;
+  background-repeat: repeat-x;
   filter: drop-shadow(0 10px 5px rgba(0,0,0,0.5));
   z-index: 10;
 }
@@ -98,40 +97,41 @@ body {
 /* "Deez" Text styling */
 .logo-top {
   font-family: 'Chewy', cursive;
-  font-size: clamp(5rem, 15vw, 12rem);
+  font-size: clamp(5rem, 15vw, 13rem);
   line-height: 0.8;
-  color: var(--bg-deep-purple);
-  -webkit-text-stroke: 4px var(--white);
-  text-shadow: 4px 4px 0px var(--white), 8px 8px 15px rgba(0,0,0,0.6);
-  z-index: 2;
-  transform: rotate(-5deg);
+  color: #3e1f68; /* Exact deep purple from the logo */
+  -webkit-text-stroke: 3px var(--white);
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  z-index: 10;
+  transform: rotate(-8deg) translateX(-15%); /* Pull left and tilt more */
 }
 
 /* "Philly's" Text styling */
 .logo-bottom {
-  font-family: 'Bangers', cursive;
-  font-size: clamp(4rem, 12vw, 10rem);
+  font-family: 'Chewy', cursive; /* Switching to Chewy for the bouncy comic style */
+  font-size: clamp(4.5rem, 13vw, 12rem);
   line-height: 0.9;
-  letter-spacing: 2px;
-  color: var(--white);
+  letter-spacing: 1px;
   
-  /* Create the gradient text effect */
-  background: linear-gradient(to bottom, var(--text-primary-gradient-1), var(--text-primary-gradient-2), var(--text-primary-gradient-3));
+  /* Create the exact gradient text effect */
+  background: linear-gradient(180deg, #ffca28 0%, #ff8f00 40%, #d82115 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   
-  /* Text outline with drop shadow trick (since text-stroke doesn't play nice with gradient fills sometimes) */
-  filter: drop-shadow(0px 0px 4px var(--white)) drop-shadow(0px 0px 1px var(--white)) drop-shadow(5px 5px 0px var(--bg-deep-purple)) drop-shadow(8px 8px 10px rgba(0,0,0,0.5));
-  z-index: 3;
-  transform: rotate(-2deg) translateY(-20px);
+  /* Dense drop shadow trick to simulate a thick white stroke AND a 3D purple drop shadow */
+  filter: drop-shadow(2px 2px 0px var(--white)) drop-shadow(-2px -2px 0px var(--white)) drop-shadow(2px -2px 0px var(--white)) drop-shadow(-2px 2px 0px var(--white)) drop-shadow(6px 6px 0px #3e1f68) drop-shadow(10px 10px 15px rgba(0,0,0,0.6));
+  z-index: 5;
+  transform: rotate(-3deg) translateY(-50px) translateX(5%);
 }
 
 .logo-drip {
-  width: 60%;
+  width: 75%;
   height: auto;
-  margin-top: -20px;
+  margin-top: -65px; /* Sink under Philly's text */
+  margin-left: 10%;
   z-index: 1;
+  filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.4));
 }
 
 .tagline {
@@ -156,11 +156,56 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
   border: 4px solid var(--cheese-main);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
 }
 
 .location-badge:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+}
+
+/* Food Slider Marquee */
+.food-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 15px 0;
+  border-top: 5px solid var(--cheese-main);
+  border-bottom: 5px solid var(--cheese-main);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.food-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+  gap: 15px;
+}
+
+.food-marquee:hover {
+  animation-play-state: paused;
+}
+
+.food-marquee img {
+  height: clamp(150px, 20vw, 250px);
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid var(--cheese-light);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.food-marquee img:hover {
+  transform: scale(1.05);
+  border-color: var(--white);
+  z-index: 10;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 7.5px)); }
 }
 
 /* About Section */
@@ -220,11 +265,11 @@ body {
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: clamp(80px, 15vw, 150px);
+  height: clamp(60px, 10vw, 100px);
   background-color: var(--cheese-main);
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,100 v-50 q20,-50 40,0 t40,-30 t40,20 t40,-40 t40,30 t40,-60 t40,40 t40,-30 t40,20 t40,-40 t40,30 t40,-60 t40,40 t40,-30 t40,20 t40,-40 t40,30 t40,-60 t40,40 t40,-30 t40,20 t40,-40 t40,30 t40,-50 v100 z" fill="%23ffca28"/></svg>');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100"><path d="M0,100 v-30 q10,-30 20,-10 t20,-40 t20,20 t20,-20 t20,10 t20,-30 t20,20 t20,-40 t20,30 t20,-10 V100 Z" fill="%23ffca28"/></svg>');
+  background-size: 200px 100%;
+  background-repeat: repeat-x;
   filter: drop-shadow(0 -10px 5px rgba(0,0,0,0.3));
   z-index: 10;
 }
