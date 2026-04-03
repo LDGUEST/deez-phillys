@@ -89,7 +89,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 4rem; /* Extra padding so the cheese drips don't overlap the tagline */
+  margin-bottom: clamp(1.5rem, 5vw, 4rem);
   position: relative;
   animation: bounceIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
@@ -122,13 +122,13 @@ body {
   /* Dense drop shadow trick to simulate a thick white stroke AND a 3D purple drop shadow */
   filter: drop-shadow(2px 2px 0px var(--white)) drop-shadow(-2px -2px 0px var(--white)) drop-shadow(2px -2px 0px var(--white)) drop-shadow(-2px 2px 0px var(--white)) drop-shadow(6px 6px 0px #3e1f68) drop-shadow(10px 10px 15px rgba(0,0,0,0.6));
   z-index: 5;
-  transform: rotate(-3deg) translateY(-50px) translateX(5%);
+  transform: rotate(-3deg) translateY(clamp(-50px, -5vw, -15px)) translateX(5%);
 }
 
 .logo-drip {
   width: 75%;
   height: auto;
-  margin-top: -65px; /* Sink under Philly's text */
+  margin-top: clamp(-65px, -7vw, -20px); /* Sink under Philly's text */
   margin-left: 10%;
   z-index: 1;
   filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.4));
