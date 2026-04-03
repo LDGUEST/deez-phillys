@@ -59,7 +59,7 @@ body {
   width: 100vw;
   height: clamp(60px, 10vw, 100px);
   background-color: var(--cheese-main);
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100"><path d="M0,0 v30 q10,30 20,10 t20,40 t20,-20 t20,20 t20,-10 t20,30 t20,-20 t20,40 t20,-30 t20,10 V0 Z" fill="%23ffca28"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100"><path d="M0,0 v10 q5,30 10,10 t10,20 t10,-10 t10,40 t10,-20 t10,10 t10,-5 t10,30 t10,-15 t10,25 t10,-15 t10,10 t10,-5 t10,35 t10,-20 t10,10 t10,-20 t10,30 t10,-15 t10,10 V0 Z" fill="%23ffca28"/></svg>');
   background-size: 200px 100%;
   background-repeat: repeat-x;
   filter: drop-shadow(0 10px 5px rgba(0,0,0,0.5));
