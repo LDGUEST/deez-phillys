@@ -1,0 +1,249 @@
+:root {
+  --bg-deep-purple: #2d0b4e;
+  --bg-sunburst: #4b157a;
+  
+  --cheese-light: #ffd54f;
+  --cheese-main: #ffca28;
+  --cheese-dark: #f57c00;
+  
+  --text-primary-gradient-1: #ff8f00;
+  --text-primary-gradient-2: #d84315;
+  --text-primary-gradient-3: #bf360c;
+
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-deep-purple);
+  color: var(--white);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Comic Book Sunburst Background Effect */
+.sunburst {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: repeating-conic-gradient(
+    from 0deg,
+    var(--bg-deep-purple) 0deg 15deg,
+    var(--bg-sunburst) 15deg 30deg
+  );
+  animation: burstRotate 120s linear infinite;
+}
+
+@keyframes burstRotate {
+  from { transform: rotate(0deg); scale: 2; }
+  to { transform: rotate(360deg); scale: 2; }
+}
+
+/* Dynamic Cheese Drip SVG using Mask/Background */
+.cheese-drip-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: clamp(80px, 15vw, 150px);
+  background-color: var(--cheese-main);
+  /* Use a simpler clip-path or background SVG */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 v50 q20,50 40,0 t40,30 t40,-20 t40,40 t40,-30 t40,60 t40,-40 t40,30 t40,-20 t40,40 t40,-30 t40,60 t40,-40 t40,30 t40,-20 t40,40 t40,-30 t40,60 t40,-40 t40,30 t40,-20 t40,40 t40,-30 t40,50 v-100 z" fill="%23ffca28"/></svg>');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 10px 5px rgba(0,0,0,0.5));
+  z-index: 10;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 80px 20px;
+  position: relative;
+  z-index: 5;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+  animation: bounceIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* "Deez" Text styling */
+.logo-top {
+  font-family: 'Chewy', cursive;
+  font-size: clamp(5rem, 15vw, 12rem);
+  line-height: 0.8;
+  color: var(--bg-deep-purple);
+  -webkit-text-stroke: 4px var(--white);
+  text-shadow: 4px 4px 0px var(--white), 8px 8px 15px rgba(0,0,0,0.6);
+  z-index: 2;
+  transform: rotate(-5deg);
+}
+
+/* "Philly's" Text styling */
+.logo-bottom {
+  font-family: 'Bangers', cursive;
+  font-size: clamp(4rem, 12vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: 2px;
+  color: var(--white);
+  
+  /* Create the gradient text effect */
+  background: linear-gradient(to bottom, var(--text-primary-gradient-1), var(--text-primary-gradient-2), var(--text-primary-gradient-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* Text outline with drop shadow trick (since text-stroke doesn't play nice with gradient fills sometimes) */
+  filter: drop-shadow(0px 0px 4px var(--white)) drop-shadow(0px 0px 1px var(--white)) drop-shadow(5px 5px 0px var(--bg-deep-purple)) drop-shadow(8px 8px 10px rgba(0,0,0,0.5));
+  z-index: 3;
+  transform: rotate(-2deg) translateY(-20px);
+}
+
+.logo-drip {
+  width: 60%;
+  height: auto;
+  margin-top: -20px;
+  z-index: 1;
+}
+
+.tagline {
+  font-family: 'Chewy', cursive;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--cheese-light);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--white);
+  color: var(--bg-deep-purple);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  border: 4px solid var(--cheese-main);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-badge:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+}
+
+/* About Section */
+.about {
+  margin-top: 4rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.about-card h2 {
+  font-family: 'Bangers', cursive;
+  font-size: 2.5rem;
+  color: var(--cheese-main);
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.about-card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--text-primary-gradient-1), var(--text-primary-gradient-3));
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border: 3px solid var(--white);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.5);
+}
+
+/* Cheese Drip Bottom Footer */
+.cheese-drip-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: clamp(80px, 15vw, 150px);
+  background-color: var(--cheese-main);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,100 v-50 q20,-50 40,0 t40,-30 t40,20 t40,-40 t40,30 t40,-60 t40,40 t40,-30 t40,20 t40,-40 t40,30 t40,-60 t40,40 t40,-30 t40,20 t40,-40 t40,30 t40,-60 t40,40 t40,-30 t40,20 t40,-40 t40,30 t40,-50 v100 z" fill="%23ffca28"/></svg>');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 -10px 5px rgba(0,0,0,0.3));
+  z-index: 10;
+}
+
+/* Animations */
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.3) translateY(100px); }
+  50% { opacity: 1; transform: scale(1.05) translateY(-20px); }
+  70% { transform: scale(0.9) translateY(10px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
