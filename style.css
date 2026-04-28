@@ -102,33 +102,29 @@ body {
 
 /* "Deez" Text styling */
 .logo-top {
-  font-family: 'Chewy', cursive;
-  font-size: clamp(5rem, 15vw, 13rem);
-  line-height: 0.8;
-  color: #3e1f68; /* Exact deep purple from the logo */
-  -webkit-text-stroke: 3px var(--white);
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(4rem, 12vw, 10rem);
+  line-height: 1;
+  color: #7B28CC;
+  -webkit-text-stroke: 4px #ffffff;
+  text-shadow: 5px 5px 0px #2d0b4e, 8px 8px 12px rgba(0,0,0,0.5);
   z-index: 10;
-  transform: rotate(-8deg) translateX(-15%); /* Pull left and tilt more */
+  transform: rotate(-3deg);
+  margin-bottom: -0.1em;
 }
 
 /* "Philly's" Text styling */
 .logo-bottom {
-  font-family: 'Chewy', cursive; /* Switching to Chewy for the bouncy comic style */
-  font-size: clamp(4.5rem, 13vw, 12rem);
-  line-height: 0.9;
-  letter-spacing: 1px;
-  
-  /* Create the exact gradient text effect */
-  background: linear-gradient(180deg, #ffca28 0%, #ff8f00 40%, #d82115 100%);
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(5rem, 16vw, 14rem);
+  line-height: 0.95;
+  background: linear-gradient(180deg, #FFD600 0%, #FF8C00 50%, #CC2200 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  
-  /* Dense drop shadow trick to simulate a thick white stroke AND a 3D purple drop shadow */
-  filter: drop-shadow(2px 2px 0px var(--white)) drop-shadow(-2px -2px 0px var(--white)) drop-shadow(2px -2px 0px var(--white)) drop-shadow(-2px 2px 0px var(--white)) drop-shadow(6px 6px 0px #3e1f68) drop-shadow(10px 10px 15px rgba(0,0,0,0.6));
+  filter: drop-shadow(3px 3px 0px #fff) drop-shadow(-3px -3px 0px #fff) drop-shadow(3px -3px 0px #fff) drop-shadow(-3px 3px 0px #fff) drop-shadow(6px 6px 0px #2d0b4e) drop-shadow(10px 10px 16px rgba(0,0,0,0.6));
   z-index: 5;
-  transform: rotate(-3deg) translateY(clamp(-50px, -4vw, -5px)) translateX(5%);
+  transform: rotate(-2deg);
 }
 
 .logo-drip {
