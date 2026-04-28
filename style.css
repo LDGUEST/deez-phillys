@@ -92,6 +92,7 @@ body {
   margin-bottom: clamp(1.5rem, 5vw, 4rem);
   position: relative;
   animation: bounceIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  filter: drop-shadow(0px 12px 24px rgba(0,0,0,0.6));
 }
 
 .hero-logo {
@@ -103,38 +104,44 @@ body {
 /* "Deez" Text styling */
 .logo-top {
   font-family: 'Pacifico', cursive;
-  font-size: clamp(4rem, 12vw, 10rem);
+  font-size: clamp(3rem, 10vw, 8rem);
   line-height: 1;
-  color: #7B28CC;
-  -webkit-text-stroke: 4px #ffffff;
-  text-shadow: 5px 5px 0px #2d0b4e, 8px 8px 12px rgba(0,0,0,0.5);
+  color: #662E91;
+  -webkit-text-stroke: 6px #ffffff;
+  text-shadow: 5px 5px 0px #1a0033, 6px 6px 0px #1a0033;
   z-index: 10;
-  transform: rotate(-3deg);
-  margin-bottom: -0.1em;
+  transform: rotate(-1deg);
+  margin-bottom: -0.15em;
 }
 
 /* "Philly's" Text styling */
 .logo-bottom {
   font-family: 'Pacifico', cursive;
-  font-size: clamp(5rem, 16vw, 14rem);
-  line-height: 0.95;
+  font-size: clamp(5.5rem, 17vw, 15rem);
+  line-height: 1.0;
   padding-bottom: 0.35em;
-  background: linear-gradient(180deg, #FFD600 0%, #FF8C00 50%, #CC2200 100%);
+  background: linear-gradient(180deg, #FFE000 0%, #FFB800 20%, #FF7700 55%, #E83000 80%, #CC1500 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(3px 3px 0px #fff) drop-shadow(-3px -3px 0px #fff) drop-shadow(3px -3px 0px #fff) drop-shadow(-3px 3px 0px #fff) drop-shadow(6px 6px 0px #2d0b4e) drop-shadow(10px 10px 16px rgba(0,0,0,0.6));
+  filter: drop-shadow(3px 3px 0px #fff) drop-shadow(-3px -3px 0px #fff) drop-shadow(3px -3px 0px #fff) drop-shadow(-3px 3px 0px #fff) drop-shadow(6px 6px 0px #1a0033) drop-shadow(7px 7px 0px #1a0033);
   z-index: 5;
-  transform: rotate(-2deg);
+  transform: rotate(-1deg);
+}
+
+.logo-bottom .phillys-inner {
+  display: inline;
+  -webkit-text-stroke: 5px #ffffff;
+  -webkit-text-fill-color: transparent;
 }
 
 .logo-drip {
-  width: 75%;
+  width: 85%;
   height: auto;
-  margin-top: clamp(-65px, -5vw, -10px); /* Sink under Philly's text */
-  margin-left: 10%;
+  margin-top: clamp(-80px, -7vw, -20px); /* Sink under Philly's text */
+  margin-left: 5%;
   z-index: 1;
-  filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.4));
+  filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.2));
 }
 
 .tagline {
