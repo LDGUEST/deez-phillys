@@ -118,6 +118,7 @@ body {
   font-family: 'Pacifico', cursive;
   font-size: clamp(5rem, 16vw, 14rem);
   line-height: 0.95;
+  padding-bottom: 0.35em;
   background: linear-gradient(180deg, #FFD600 0%, #FF8C00 50%, #CC2200 100%);
   -webkit-background-clip: text;
   background-clip: text;
