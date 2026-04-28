@@ -107,7 +107,7 @@ body {
   font-size: clamp(3rem, 10vw, 8rem);
   line-height: 1;
   color: #662E91;
-  -webkit-text-stroke: 6px #ffffff;
+  -webkit-text-stroke: 3px #ffffff;
   text-shadow: 5px 5px 0px #1a0033, 6px 6px 0px #1a0033;
   z-index: 10;
   transform: rotate(-1deg);
@@ -124,14 +124,14 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(3px 3px 0px #fff) drop-shadow(-3px -3px 0px #fff) drop-shadow(3px -3px 0px #fff) drop-shadow(-3px 3px 0px #fff) drop-shadow(6px 6px 0px #1a0033) drop-shadow(7px 7px 0px #1a0033);
+  filter: drop-shadow(1.5px 1.5px 0px #fff) drop-shadow(-1.5px -1.5px 0px #fff) drop-shadow(1.5px -1.5px 0px #fff) drop-shadow(-1.5px 1.5px 0px #fff) drop-shadow(6px 6px 0px #1a0033) drop-shadow(7px 7px 0px #1a0033);
   z-index: 5;
   transform: rotate(-1deg);
 }
 
 .logo-bottom .phillys-inner {
   display: inline;
-  -webkit-text-stroke: 5px #ffffff;
+  -webkit-text-stroke: 2.5px #ffffff;
   -webkit-text-fill-color: transparent;
 }
 
