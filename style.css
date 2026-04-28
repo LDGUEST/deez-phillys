@@ -325,7 +325,7 @@ body {
   align-items: center;
 }
 .nav-logo img {
-  height: 77px;
+  height: 123px;
   width: auto;
 }
 
@@ -471,7 +471,7 @@ body {
     padding: 0.6rem 1rem;
   }
   .nav-logo img {
-    height: 58px;
+    height: 93px;
   }
   .nav-links {
     gap: 1rem;
