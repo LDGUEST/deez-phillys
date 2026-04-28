@@ -73,7 +73,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 120px 20px 80px 20px;
+  padding: 155px 20px 80px 20px;
   position: relative;
   z-index: 5;
 }
@@ -313,7 +313,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 2rem;
+  padding: 0.25rem 2rem;
   background: rgba(45, 11, 78, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 3px solid var(--cheese-main);
